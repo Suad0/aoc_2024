@@ -44,15 +44,6 @@ defmodule PlaygroundElixir.DayFive do
     Enum.at(update, div(length(update), 2))
   end
 
-  def process_updates(input) do
-    %{rules: rules, updates: updates} = parse_input(input)
-
-    updates
-    |> Enum.filter(fn update -> is_update_valid(update, rules) end)
-    |> Enum.map(&find_middle_page/1)
-    |> Enum.sum()
-  end
-
   def reorder_update(update, rules) do
     page_set = MapSet.new(update)
 
@@ -64,7 +55,6 @@ defmodule PlaygroundElixir.DayFive do
         {graph, in_degree}
       end)
 
-    # Add edges and update in-degree
     {graph, in_degree} =
       Enum.reduce(rules, {graph, in_degree}, fn [x, y], {graph, in_degree} ->
         if MapSet.member?(page_set, x) and MapSet.member?(page_set, y) do
@@ -77,6 +67,19 @@ defmodule PlaygroundElixir.DayFive do
       end)
 
     do_topological_sort(graph, in_degree)
+  end
+
+  def process_incorrect_updates(input) do
+    %{rules: rules, updates: updates} = parse_input(input)
+
+    updates
+    |> Enum.filter(fn update -> not is_update_valid(update, rules) end)
+    |> Enum.map(fn update ->
+      update
+      |> reorder_update(rules)
+      |> find_middle_page()
+    end)
+    |> Enum.sum()
   end
 
   defp do_topological_sort(graph, in_degree) do

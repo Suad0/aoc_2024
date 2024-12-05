@@ -78,6 +78,6 @@ defmodule PlaygroundElixir do
     97,13,75,29,47
     """
 
-    IO.puts(DayFive.process_updates(input))
+    IO.puts(DayFive.process_incorrect_updates(input))
   end
 end
