@@ -2,7 +2,16 @@ defmodule PlaygroundElixir do
   @compile {:warning_level, 0}
   use Application
 
-  alias PlaygroundElixir.{DayOne, DayTwo, DayThree, DayFour, DayFive, DaySix, InputParser}
+  alias PlaygroundElixir.{
+    DayOne,
+    DayTwo,
+    DayThree,
+    DayFour,
+    DayFive,
+    DaySix,
+    DaySeven,
+    InputParser
+  }
 
   def start(_type, _args) do
     PlaygroundElixir.main()
@@ -11,7 +20,7 @@ defmodule PlaygroundElixir do
   end
 
   def main() do
-    run_day_six()
+    run_day_seven()
   end
 
   defp run_day_one do
@@ -85,5 +94,9 @@ defmodule PlaygroundElixir do
     filename = System.argv() |> List.first() || "input.txt"
 
     IO.puts(DaySix.solve(filename))
+  end
+
+  def run_day_seven() do
+    IO.puts(DaySeven.solve())
   end
 end
