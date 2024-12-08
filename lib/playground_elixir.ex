@@ -10,6 +10,7 @@ defmodule PlaygroundElixir do
     DayFive,
     DaySix,
     DaySeven,
+    DayEight,
     InputParser
   }
 
@@ -20,7 +21,7 @@ defmodule PlaygroundElixir do
   end
 
   def main() do
-    run_day_seven()
+    run_day_eight()
   end
 
   defp run_day_one do
@@ -98,5 +99,9 @@ defmodule PlaygroundElixir do
 
   def run_day_seven() do
     IO.puts(DaySeven.solve())
+  end
+
+  defp run_day_eight() do
+    IO.puts(DayEight.main())
   end
 end

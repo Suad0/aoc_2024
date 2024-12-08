@@ -20,11 +20,12 @@ defmodule PlaygroundElixir.DaySeven do
 
         concatenation =
           p2 and
-          do_is_valid(
-            target,
-            [String.to_integer("#{Enum.at(ns, 0)}#{Enum.at(ns, 1)}")] ++ Enum.slice(ns, 2..-1//1),
-            p2
-          )
+            do_is_valid(
+              target,
+              [String.to_integer("#{Enum.at(ns, 0)}#{Enum.at(ns, 1)}")] ++
+                Enum.slice(ns, 2..-1//1),
+              p2
+            )
 
         addition or multiplication or concatenation
     end
