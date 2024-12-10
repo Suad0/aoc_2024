@@ -11,6 +11,8 @@ defmodule PlaygroundElixir do
     DaySix,
     DaySeven,
     DayEight,
+    DayNine,
+    DayTen,
     InputParser
   }
 
@@ -21,7 +23,7 @@ defmodule PlaygroundElixir do
   end
 
   def main() do
-    run_day_eight()
+    run_day_ten()
   end
 
   defp run_day_one do
@@ -103,5 +105,21 @@ defmodule PlaygroundElixir do
 
   defp run_day_eight() do
     IO.puts(DayEight.main())
+  end
+
+  defp run_day_nine() do
+    input = DayNine.read_input("input.txt")
+
+    p1 = DayNine.solve(input, false)
+    p2 = DayNine.solve(input, true)
+
+    IO.puts(p1)
+    IO.puts(p2)
+  end
+
+  defp run_day_ten() do
+    {:ok, input} = File.read("input.txt")
+
+    IO.puts(DayTen.solve(input))
   end
 end
