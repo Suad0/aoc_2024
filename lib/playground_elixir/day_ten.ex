@@ -21,7 +21,7 @@ defmodule PlaygroundElixir.DayTen do
 
   # Recursive DFS to find distinct paths from the trailhead to height 9
   def dfs(grid, row, col, visited) do
-    # Base case: If we reach height 9, its a valid trail endpoint
+    # Base case: If height 9, its a valid trail endpoint
     if Enum.at(Enum.at(grid, row), col) == 9 do
       1
     else

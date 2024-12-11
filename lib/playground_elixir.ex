@@ -13,6 +13,7 @@ defmodule PlaygroundElixir do
     DayEight,
     DayNine,
     DayTen,
+    DayEleven,
     InputParser
   }
 
@@ -23,7 +24,7 @@ defmodule PlaygroundElixir do
   end
 
   def main() do
-    run_day_ten()
+    run_day_eleven()
   end
 
   defp run_day_one do
@@ -121,5 +122,13 @@ defmodule PlaygroundElixir do
     {:ok, input} = File.read("input.txt")
 
     IO.puts(DayTen.solve(input))
+  end
+
+  defp run_day_eleven() do
+    initial_stones = [92, 0, 286_041, 8034, 34394, 795, 8, 2_051_489]
+    blinks = 75
+
+    result = DayEleven.simulate_stones(initial_stones, blinks)
+    IO.puts("Number of stones after #{blinks} blinks: #{result}")
   end
 end
